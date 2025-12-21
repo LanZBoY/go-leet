@@ -1,8 +1,6 @@
 package p0155_min_stack
 
 type MinStack struct {
-	// TODO: implement
-
 	datas []Data
 }
 
@@ -16,7 +14,7 @@ func Constructor() MinStack {
 }
 
 func (this *MinStack) Push(val int) {
-	// TODO: implement
+
 	var minVal = val
 	if len(this.datas) > 0 {
 		minVal = min(this.datas[len(this.datas)-1].minVal, minVal)
@@ -28,7 +26,6 @@ func (this *MinStack) Push(val int) {
 }
 
 func (this *MinStack) Pop() {
-	// TODO: implement
 	this.datas = this.datas[:len(this.datas)-1]
 }
 
