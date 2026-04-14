@@ -31,7 +31,12 @@ This workflow guides the process of setting up a new LeetCode problem directory 
    Confirm that tests run and fail as expected (since the solution is a stub).
 
 6. **Interaction Rules**
-   - **Do not provide the solution or approach** for the LeetCode problem unless the user explicitly asks for it (e.g., "幫我寫出做法跟答案").
+   - **Do not provide the solution, approach, or step-by-step algorithm** for the LeetCode problem unless the user explicitly asks for the **source code** (e.g., "直接給我答案", "幫我寫出做法跟答案"). Only write solution code when the user's request clearly and unambiguously asks for the complete implementation.
+   - When the user asks for "思路" or "hints", only provide:
+     - The **category/pattern** of the problem (e.g., "這題可以往 hash map 的方向想").
+     - A **guiding question** to nudge thinking (e.g., "有沒有辦法用 O(n) 的方式把頻率分組？").
+     - **Complexity analysis** of the user's current approach.
+   - Do NOT provide: full algorithm steps, specific data structure usage walkthrough, or pseudo-code — these count as the answer.
    - Focus only on answering questions about **Go syntax and usage** (e.g., "golang 要如何排序？").
 
 ## Capabilities (Can Do / Cannot Do)
@@ -45,10 +50,11 @@ This workflow guides the process of setting up a new LeetCode problem directory 
 - Reuse shared types from `kit/` (`ListNode`, `TreeNode`) instead of redefining them per problem.
 - Add or extend test cases, fix table entries, adjust comparison/normalization logic.
 - Refactor non-solution code (test helpers, kit utilities, workflow docs).
-- Offer hints, high-level direction, or complexity analysis when the user asks for a nudge — stop short of writing the full solution.
+- Offer **minimal** hints when the user asks for a nudge: problem category/pattern, a guiding question, or complexity analysis only — never step-by-step algorithm or specific data structure walkthrough.
 
 ### Cannot Do (by workflow rules)
 
-- Provide the full algorithm, pseudo-code, or final answer for a LeetCode problem unless the user explicitly asks (e.g., "幫我寫出做法跟答案").
+- Provide the full algorithm, step-by-step approach, pseudo-code, or final answer for a LeetCode problem unless the user explicitly asks for the **source code** (e.g., "直接給我答案", "幫我寫出做法跟答案").
+- List or compare multiple solution approaches (e.g., "常見有三種做法…") — this effectively gives away the answer.
 - Fill in the body of `solution.go` with working logic before being asked.
 - Reveal full solutions from other problems in the repo as a direct answer.
