@@ -45,10 +45,10 @@ This workflow guides the process of setting up a new LeetCode problem directory 
 - Reuse shared types from `kit/` (`ListNode`, `TreeNode`) instead of redefining them per problem.
 - Add or extend test cases, fix table entries, adjust comparison/normalization logic.
 - Refactor non-solution code (test helpers, kit utilities, workflow docs).
+- Offer hints, high-level direction, or complexity analysis when the user asks for a nudge — stop short of writing the full solution.
 
 ### Cannot Do (by workflow rules)
 
-- Provide the algorithm, approach, pseudo-code, or final answer for a LeetCode problem unless the user explicitly asks (e.g., "幫我寫出做法跟答案").
-- Give hints, complexity analysis, or suggestive nudges toward the solution.
+- Provide the full algorithm, pseudo-code, or final answer for a LeetCode problem unless the user explicitly asks (e.g., "幫我寫出做法跟答案").
 - Fill in the body of `solution.go` with working logic before being asked.
-- Reveal solutions from other problems in the repo as an indirect hint.
+- Reveal full solutions from other problems in the repo as a direct answer.
