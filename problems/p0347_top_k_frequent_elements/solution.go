@@ -1,37 +1,23 @@
 package p0347_top_k_frequent_elements
 
-import "slices"
-
 func topKFrequent(nums []int, k int) []int {
 	// 建立一個map
-	cMap := make(map[int]int)
+	countMap := make(map[int]int)
 
-	for _, num := range nums {
-		cMap[num]++
+	for _, num := range nums{
+		countMap[num]++
 	}
 
-	type NumCount struct {
-		num   int
-		count int
+	buckets := make([][]int, len(nums) + 1)
+
+	for num, count :=  range countMap{
+		buckets[count] = append(buckets[count], num)
 	}
 
-	ncs := make([]NumCount, 0)
+	result := make([]int, 0, k)
 
-	for k, v := range cMap {
-		ncs = append(ncs, NumCount{
-			num:   k,
-			count: v,
-		})
-	}
-
-	slices.SortFunc(ncs, func(a NumCount, b NumCount) int {
-		return b.count - a.count
-	})
-
-	result := make([]int, k)
-
-	for i := range k {
-		result[i] = ncs[i].num
+	for i := len(buckets) - 1; i>=0 && len(result) != k; i--{
+		result = append(result, buckets[i]...)
 	}
 
 	return result
